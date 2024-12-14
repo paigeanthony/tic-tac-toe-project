@@ -17,3 +17,4 @@ def load_results() -> List[str]:
     except FileNotFoundError:
         pass
     return results
+

@@ -27,3 +27,4 @@ class TicTacToe:
 
     def is_draw(self) -> bool:
         return all(cell != "" for row in self.board for cell in row)
+
