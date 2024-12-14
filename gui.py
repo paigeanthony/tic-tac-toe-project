@@ -83,3 +83,4 @@ class TicTacToeGUI:
         for row in self.buttons:
             for button in row:
                 button.config(text="")
+
