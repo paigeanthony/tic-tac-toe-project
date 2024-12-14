@@ -12,7 +12,6 @@ class TicTacToe:
         self.board[x][y] = player
 
     def check_winner(self) -> bool:
-        # Check rows, columns, diagonals
         for i in range(3):
             if all(self.board[i][j] == self.board[i][0] and self.board[i][0] != "" for j in range(3)):
                 return True
