@@ -3,7 +3,7 @@ from typing import List
 
 FILE_NAME = "data.csv"
 
-def save_result(winner: str):
+def save_result(winner: str) -> None:
     """
     Saves the result of the game (winner or draw) to a CSV file.
 
@@ -21,7 +21,7 @@ def load_results() -> List[str]:
     Returns:
         List[str]: A list of game results.
     """
-    results = []
+    results: List[str] = []
     try:
         with open(FILE_NAME, "r") as file:
             reader = csv.reader(file)
@@ -29,4 +29,3 @@ def load_results() -> List[str]:
     except FileNotFoundError:
         pass
     return results
-

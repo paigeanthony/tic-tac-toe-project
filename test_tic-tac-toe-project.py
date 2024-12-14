@@ -1,25 +1,25 @@
 import unittest
-from game_logic import TicTacToe
+from logic import TicTacToe
 
 class TestTicTacToe(unittest.TestCase):
     """
     Unit tests for the TicTacToe game logic.
     """
 
-    def setUp(self):
+    def setUp(self) -> None:
         """
         Sets up a new game instance before each test.
         """
         self.game = TicTacToe()
 
-    def test_make_valid_move(self):
+    def test_make_valid_move(self) -> None:
         """
         Tests making a valid move and checking if the board updates correctly.
         """
         self.game.make_move(0, 0, "X")
         self.assertEqual(self.game.board[0][0], "X")
 
-    def test_check_winner(self):
+    def test_check_winner(self) -> None:
         """
         Tests checking if the game correctly detects a winner.
         """
@@ -28,7 +28,7 @@ class TestTicTacToe(unittest.TestCase):
         self.game.make_move(0, 2, "X")
         self.assertTrue(self.game.check_winner())
 
-    def test_is_draw(self):
+    def test_is_draw(self) -> None:
         """
         Tests checking if the game correctly detects a draw.
         """
@@ -44,4 +44,3 @@ class TestTicTacToe(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

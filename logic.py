@@ -4,17 +4,17 @@ class TicTacToe:
     It manages the game board, checks for valid moves, and determines the winner.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         """
         Initializes a new game of Tic-Tac-Toe by resetting the game board.
         """
         self.reset_board()
 
-    def reset_board(self):
+    def reset_board(self) -> None:
         """
         Resets the game board to an empty state (3x3 grid).
         """
-        self.board = [["" for _ in range(3)] for _ in range(3)]
+        self.board: list[list[str]] = [["" for _ in range(3)] for _ in range(3)]
 
     def is_valid_move(self, x: int, y: int) -> bool:
         """
@@ -29,7 +29,7 @@ class TicTacToe:
         """
         return self.board[x][y] == ""
 
-    def make_move(self, x: int, y: int, player: str):
+    def make_move(self, x: int, y: int, player: str) -> None:
         """
         Makes a move for the current player at the specified position.
 
@@ -68,4 +68,3 @@ class TicTacToe:
             bool: True if the game is a draw, otherwise False.
         """
         return all(cell != "" for row in self.board for cell in row)
-

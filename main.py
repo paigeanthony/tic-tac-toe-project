@@ -1,7 +1,7 @@
 from tkinter import Tk
 from gui import TicTacToeGUI
 
-def main():
+def main() -> None:
     """
     Initializes the main window for the Tic-Tac-Toe game and starts the GUI.
     """
@@ -16,4 +16,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

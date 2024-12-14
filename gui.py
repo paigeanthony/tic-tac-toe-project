@@ -1,6 +1,7 @@
 from tkinter import Frame, Button, Label, StringVar, messagebox
 from logic import TicTacToe
 from data import save_result, load_results
+from tkinter import Tk
 
 
 class TicTacToeGUI:
@@ -9,7 +10,7 @@ class TicTacToeGUI:
     It handles the display of the game board, player turns, and the game result.
     """
 
-    def __init__(self, window):
+    def __init__(self, window: Tk) -> None:
         """
         Initializes the TicTacToeGUI class with the given window.
         Sets up the game and prepares the GUI components.
@@ -19,11 +20,11 @@ class TicTacToeGUI:
         """
         self.window = window
         self.game = TicTacToe()
-        self.buttons = []
+        self.buttons: list[list[Button]] = []
         self.current_player = StringVar(value="X")
         self.setup_gui()
 
-    def setup_gui(self):
+    def setup_gui(self) -> None:
         """
         Sets up the graphical interface, including the label, buttons, and game board.
         """
@@ -35,7 +36,7 @@ class TicTacToeGUI:
         board_frame.pack()
 
         for i in range(3):
-            row_buttons = []
+            row_buttons: list[Button] = []
             for j in range(3):
                 button = Button(
                     board_frame, text="", height=3, width=6,
@@ -45,7 +46,7 @@ class TicTacToeGUI:
                 row_buttons.append(button)
             self.buttons.append(row_buttons)
 
-    def make_move(self, x, y):
+    def make_move(self, x: int, y: int) -> None:
         """
         Handles a move made by the current player at the specified position on the board.
         Updates the board and checks if the game has ended.
@@ -72,7 +73,7 @@ class TicTacToeGUI:
             self.current_player.set("O" if current_player == "X" else "X")
             self.label.config(text=f"Player {self.current_player.get()}'s Turn")
 
-    def reset_game(self):
+    def reset_game(self) -> None:
         """
         Resets the game board and sets the turn back to Player X.
         Clears the text on all buttons.
@@ -83,4 +84,3 @@ class TicTacToeGUI:
         for row in self.buttons:
             for button in row:
                 button.config(text="")
-
